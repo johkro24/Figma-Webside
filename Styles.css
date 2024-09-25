@@ -1,0 +1,99 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1da1f2; /* Vitalis Fitness Blue */
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* CTA button styling */
+.cta {
+  background-color: white !important; /* Ensure background is white */
+  color: #1da1f2 !important; /* Ensure text color is blue */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Change background and text color on hover */
+.cta:hover {
+  background-color: #1da1f2 !important; /* Background changes to blue on hover */
+  color: white !important; /* Text changes to white on hover */
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+.text-section {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px; /* Adjust the height to maintain alignment */
+  object-fit: cover; /* Ensures the image scales properly */
+}
+
+/* Ensures mobile responsiveness */
+@media (max-width: 768px) {
+  .main-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .text-section {
+      padding-right: 0;
+      padding-bottom: 20px;
+  }
+
+  .image-section img {
+      max-height: 300px;
+  }
+}
