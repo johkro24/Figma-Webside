@@ -147,7 +147,6 @@ body {
 
 .membership-card {
     background-color: #444; /* Set card background to a lighter gray */
-    border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
     width: 300px;

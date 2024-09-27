@@ -1,0 +1,204 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1da1f2; /* Vitalis Fitness Blue */
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+  }
+.pricing-section {
+    padding: 40px;
+    text-align: left; /* Align the text to the left */
+    flex: 1; /* Fill available space */
+    max-width: 1000px; /* Ensure it does not stretch across the whole page */
+    margin: 0; /* Align the pricing section to the left */
+}
+
+.pricing-section h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #1da1f2;
+}
+
+.section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.pricing-grid {
+    display: block; /* Change to block to avoid centering */
+    gap: 20px;
+}
+
+.pricing-card {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Make it take full width */
+    margin-bottom: 20px;
+    text-align: left; /* Align content to the left */
+}
+
+.pricing-card h3 {
+    font-size: 22px;
+    color: #1da1f2;
+    margin-bottom: 15px;
+}
+
+.pricing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Remove the dots from list items */
+.pricing-item span {
+    list-style: none;
+}
+
+.buy-btn {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 6px 12px; /* Smaller button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+    background-color: #0a7abc;
+}
+
+/* Overlay Styles (both login and register) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure overlays are on top */
+  }
+  
+  .login-box {
+    background-color: #fff;
+    padding: 40px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+  }
+  
+  .login-box h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Input Fields */
+  .login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .login-box input::placeholder {
+    color: #ccc;
+  }
+
+/* CTA button styling */
+.cta {
+    background-color: white !important; /* Ensure background is white */
+    color: #1da1f2 !important; /* Ensure text color is blue */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Change background and text color on hover */
+  .cta:hover {
+    background-color: #1da1f2 !important; /* Background changes to blue on hover */
+    color: white !important; /* Text changes to white on hover */
+  }
+
+  /* Button */
+  .login-box button {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .login-box button:hover {
+    background-color: #555;
+  }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1da1f2;
+    color: white;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}

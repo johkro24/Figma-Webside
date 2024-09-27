@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vitalis Fitness</title>
+    <link rel="stylesheet" href="Bestill_time.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Index.html">
+                <img src="Images/Logo.svg" alt="Vitalis Fitness Logo" />
+            </a>
+            <span>Vitalis Fitness</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="Bli_medlem.html">Bli medlem</a></li>
+            <li><a href="Bestill_time.html">Bestill time</a></li>
+            <li><a href="About.html">Om oss</a></li>
+            <ul class="nav-links">
+                <li><a href="#login">Logg Inn</a></li>
+                <li><a href="#register" class="cta">Opprett Bruker</a></li>
+            </ul>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pricing-section">
+        <h1>Personal Training Pricing</h1>
+
+        <!-- Group Classes -->
+        <div class="section">
+            <h2>Gruppetimer</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>9-ukers trening</h3>
+                    <div class="pricing-item">
+                        <span>1 økt pr. uke: <strong>1450kr</strong></span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                    <div class="pricing-item">
+                        <span>2 økter pr. uke: <strong>2550kr</strong></span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Frem til jul</h3>
+                    <div class="pricing-item">
+                        <span>1 økt pr. uke: <strong>2700kr</strong> (540kr pr. Mnd.)</span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                    <div class="pricing-item">
+                        <span>2 økter pr. uke: <strong>4200kr</strong> (840kr pr. Mnd.)</span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                    <div class="pricing-item">
+                        <span>Ned i vekt –lukket gruppe: <strong>3500kr</strong></span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                    <div class="pricing-item">
+                        <span>+ 99kr pr. Mnd for independent training access</span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Private PT Sessions -->
+        <div class="section">
+            <h2>Private PT-timer</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>10 Timer</h3>
+                    <div class="pricing-item">
+                        <span>40min: <strong>4900kr</strong></span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                    <div class="pricing-item">
+                        <span>55min: <strong>5400kr</strong></span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>20 Timer</h3>
+                    <div class="pricing-item">
+                        <span>40min: <strong>9500kr</strong> (1900kr pr. Mnd. Fra august til desember)</span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                    <div class="pricing-item">
+                        <span>55min: <strong>10500kr</strong> (2100kr pr. Mnd. Fra august til desember)</span>
+                        <button class="buy-btn">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Vitalis Fitness. Alle rettigheter reservert.</p>
+    </footer>
+    
+    <!-- Logg Inn Overlay -->
+    <div id="login-overlay" class="overlay">
+        <div class="login-box">
+            <h2>Logg Inn</h2>
+            <form>
+                <label for="email">E-post</label>
+                <input type="email" id="email" placeholder="E-post" />
+                <label for="password">Passord</label>
+                <input type="password" id="password" placeholder="Passord" />
+                <button type="submit">Logg Inn</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Opprett bruker Overlay -->
+    <div id="register-overlay" class="overlay">
+        <div class="login-box">
+            <h2>Opprett Bruker</h2>
+            <form>
+                <label for="email-register">E-post</label>
+                <input type="email" id="email-register" placeholder="E-post" />
+                <label for="password-register">Passord</label>
+                <input type="password" id="password-register" placeholder="Passord" />
+                <button type="submit">Opprett bruker</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for showing/hiding overlay -->
+    <script src="script.js"></script>
+</body>
+
+</html>
