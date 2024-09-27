@@ -6,8 +6,6 @@ This project is a web development project based on a design created in Figma. It
 - [About](#about)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## About
