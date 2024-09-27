@@ -1,4 +1,4 @@
-# Figma-Webside
+# Figma-Website
 
 This project is a web development project based on a design created in Figma. It transforms the visual design from Figma into a fully functional website using HTML, CSS, and JavaScript.
 
