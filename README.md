@@ -11,9 +11,7 @@ This project is a web development project based on a design created in Figma. It
 The goal of this project is to convert a Figma design into a responsive and modern website. The repository contains the source code to build a simple, yet elegant website, ensuring that the layout adheres to the original design principles created in Figma.
 
 ## Features
-- Fully responsive design
-- Modern layout with smooth animations
-- Easy-to-read, clean code
+- Easy to read code
 - Built with HTML, CSS, and JavaScript
 - Customizable components and sections
 
