@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Cart.css">
+    <title>Handlekurv</title>
+</head>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Index.html">
+                <img src="Images/Logo.svg" alt="Vitalis Fitness Logo" />
+            </a>
+            <span>Vitalis Fitness</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="Shop.html">Bli medlem</a></li>
+            <li><a href="About.html">Om oss</a></li>
+            <ul class="nav-links">
+                <li><a href="#login">Logg Inn</a></li>
+                <li><a href="#register" class="cta">Opprett Bruker</a></li>
+            </ul>
+        </ul>
+    </nav>
+
+    <!-- Shopping Cart Section -->
+    <section class="cart-section">
+        <h1>Din Handlekurv</h1>
+        <div id="cart-items"></div>
+        <h3>Total: <span id="cart-total">0 kr</span></h3>
+        <button id="checkout-btn">Til Kassen</button>
+    </section>
+
+    <!-- JavaScript to load the cart items and total -->
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to display cart items
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalContainer = document.getElementById('cart-total');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemRow = document.createElement('div');
+                itemRow.classList.add('cart-item');
+                itemRow.innerHTML = `
+                    <span>${item.name} - ${item.price} kr</span>
+                    <button onclick="removeFromCart(${index})">Fjern</button>
+                `;
+                cartItemsContainer.appendChild(itemRow);
+                total += item.price;
+            });
+
+            cartTotalContainer.textContent = `${total} kr`;
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCartItems();
+        }
+
+        // Display the cart items on page load
+        displayCartItems();
+
+        // Checkout button logic (can be expanded for payment integration)
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Handlekurven er tom.');
+            } else {
+                alert('Til kassen (utvid med betalingsintegrasjon).');
+                // Clear the cart after checkout
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCartItems();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

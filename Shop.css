@@ -16,16 +16,6 @@ body {
     flex: 1; /* This makes the main content take up the remaining space */
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1da1f2; /* Vitalis Fitness Blue */
-    padding: 10px 20px;
-    color: white;
-}
-
 /* Logo */
 .logo {
     display: flex;
@@ -36,6 +26,16 @@ body {
     width: 50px;
     height: auto;
     margin-right: 10px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1da1f2; /* Vitalis Fitness Blue */
+    padding: 10px 20px;
+    color: white;
 }
 
 /* Navigation Links */
@@ -258,26 +258,6 @@ footer {
     }
 }
 
-/* Cart Section */
-.cart-section {
-    padding: 40px;
-    text-align: center;
-}
-
-#cart-items {
-    margin: 20px 0;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-}
-
-.cart-item span {
-    font-size: 18px;
-}
-
 #checkout-btn {
     background-color: #1da1f2;
     color: white;
@@ -291,3 +271,16 @@ footer {
     background-color: #0a7abc;
 }
 
+/* Style the cart icon to appear neatly */
+.cart-icon {
+    padding: 10px;
+    cursor: pointer;
+    /* Optional: Adjust size or color as needed */
+}
+
+/* To ensure everything aligns correctly in mobile as well */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+}
