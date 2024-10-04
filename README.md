@@ -8,7 +8,7 @@ This project is a web development project based on a design created in Figma. It
 - [Installation](#installation)
 
 ## About
-The goal of this project is to convert a Figma design into a responsive and modern website. The repository contains the source code to build a simple, yet elegant website, ensuring that the layout adheres to the original design principles created in Figma.
+The goal of this project is to convert a Figma design into a responsive website. The repository contains the source code to build a simple website.
 
 ## Features
 - Easy to read code
