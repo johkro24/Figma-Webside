@@ -63,7 +63,9 @@
               <span>${item.price} kr</span>
             </div>
             <div class="quantity">
-              <span>Antall: ${item.quantity}</span>
+              <button class="quantity-btn" onclick="updateQuantity(${index}, 'decrease')">-</button>
+              <span>${item.quantity}</span>
+              <button class="quantity-btn" onclick="updateQuantity(${index}, 'increase')">+</button>
             </div>
             <button class="remove-btn" onclick="removeFromCart(${index})">&#x2716;</button>
           `;
@@ -80,12 +82,12 @@
       // Function to update item quantity
       function updateQuantity(index, action) {
         if (action === "increase") {
-          cart[index].quantity += 1;
+          cart[index].quantity += 1; // Increase quantity
         } else if (action === "decrease" && cart[index].quantity > 1) {
-          cart[index].quantity -= 1;
+          cart[index].quantity -= 1; // Decrease quantity
         }
         localStorage.setItem("cart", JSON.stringify(cart));
-        displayCartItems();
+        displayCartItems(); // Refresh the cart display
       }
 
       // Function to remove an item from the cart
