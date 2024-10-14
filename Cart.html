@@ -49,8 +49,8 @@
         const cartTotalContainer = document.getElementById("cart-total");
         cartItemsContainer.innerHTML = "";
 
-        // Initialize total to 1 (for multiplication)
-        let total = cart.length > 0 ? 1 : 0; // Start with 1 if cart has items, otherwise 0
+        // Initialize total to 0 (for summing up prices)
+        let total = 0;
 
         cart.forEach((item, index) => {
           const itemRow = document.createElement("div");
@@ -69,8 +69,8 @@
           `;
           cartItemsContainer.appendChild(itemRow);
 
-          // Multiply total by the price * quantity of each item
-          total *= item.price * item.quantity;
+          // Add price multiplied by quantity to the total
+          total += parseFloat(item.price) * item.quantity;
         });
 
         // Update total display
