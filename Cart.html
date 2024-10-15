@@ -113,5 +113,47 @@
         }
       });
     </script>
+    
+    <script>
+      function displayCartItems() {
+        fetch('http://localhost:5000/cart')
+          .then(response => response.json())
+          .then(cart => {
+            const cartItemsContainer = document.getElementById("cart-items");
+            const cartTotalContainer = document.getElementById("cart-total");
+            cartItemsContainer.innerHTML = "";
+    
+            let total = 0;
+    
+            cart.forEach((item) => {
+              const itemRow = document.createElement("div");
+              itemRow.classList.add("cart-item");
+              itemRow.innerHTML = `
+                <div class="product-info">
+                  <h2>${item.name}</h2>
+                </div>
+                <div class="price">
+                  <span>${item.price} kr</span>
+                </div>
+                <div class="quantity">
+                  <span>Antall: ${item.quantity}</span>
+                </div>
+              `;
+              cartItemsContainer.appendChild(itemRow);
+    
+              total += item.price * item.quantity;
+            });
+    
+            cartTotalContainer.textContent = `${total.toFixed(2)} kr`;
+          })
+          .catch((error) => {
+            console.error('Error fetching cart items:', error);
+          });
+      }
+    
+      // Call displayCartItems() when the page loads
+      displayCartItems();
+    </script>
+
   </body>
 </html>

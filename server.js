@@ -1,57 +1,52 @@
 const express = require('express');
-const mysql = require('mysql');
+const mongoose = require('mongoose');
+const cors = require('cors');
 const bodyParser = require('body-parser');
-const app = express();
+require('dotenv').config();
 
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
+app.use(cors());
 app.use(bodyParser.json());
 
-// Database connection
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'shopping_cart_db'
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+// Define CartItem schema and model
+const cartItemSchema = new mongoose.Schema({
+    id: String,
+    name: String,
+    price: Number,
+    quantity: { type: Number, default: 1 }
 });
 
-db.connect(err => {
-  if (err) {
-    throw err;
-  }
-  console.log('MySQL Connected...');
+const CartItem = mongoose.model('CartItem', cartItemSchema);
+
+// API routes
+app.post('/cart', async (req, res) => {
+    const cartItem = new CartItem(req.body);
+    try {
+        await cartItem.save();
+        res.status(201).send(cartItem);
+    } catch (error) {
+        res.status(400).send(error);
+    }
 });
 
-// Add item to the cart
-app.post('/add-to-cart', (req, res) => {
-  const { user_id, product_name, product_price } = req.body;
-  let sql = 'INSERT INTO cart_items (user_id, product_name, product_price, quantity) VALUES (?, ?, ?, ?)';
-  db.query(sql, [user_id, product_name, product_price, 1], (err, result) => {
-    if (err) throw err;
-    res.send({ message: 'Item added to cart', result });
-  });
-});
-
-// Get cart items for a user
-app.get('/cart/:user_id', (req, res) => {
-  const user_id = req.params.user_id;
-  let sql = 'SELECT * FROM cart_items WHERE user_id = ?';
-  db.query(sql, [user_id], (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-});
-
-// Remove item from cart
-app.delete('/cart/:cart_id', (req, res) => {
-  const cart_id = req.params.cart_id;
-  let sql = 'DELETE FROM cart_items WHERE cart_id = ?';
-  db.query(sql, [cart_id], (err, result) => {
-    if (err) throw err;
-    res.send({ message: 'Item removed from cart', result });
-  });
+app.get('/cart', async (req, res) => {
+    try {
+        const items = await CartItem.find();
+        res.status(200).send(items);
+    } catch (error) {
+        res.status(500).send(error);
+    }
 });
 
 // Start server
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
-

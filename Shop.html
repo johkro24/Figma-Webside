@@ -1,159 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Vitalis Fitness</title>
     <link rel="stylesheet" href="Shop.css" />
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <a href="Index.html">
-                <img src="Images/Logo.svg" alt="Vitalis Fitness Logo" />
-            </a>
-            <span>Vitalis Fitness</span>
-        </div>
+      <div class="logo">
+        <a href="Index.html">
+          <img src="Images/Logo.svg" alt="Vitalis Fitness Logo" />
+        </a>
+        <span>Vitalis Fitness</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="Shop.html">Bli medlem</a></li>
+        <li><a href="About.html">Om oss</a></li>
+        <li>
+          <a href="Cart.html"
+            ><i class="fa fa-shopping-cart" style="font-size: 24px"></i
+          ></a>
+        </li>
         <ul class="nav-links">
-            <li><a href="Shop.html">Bli medlem</a></li>
-            <li><a href="About.html">Om oss</a></li>
-            <li>
-                <a href="Cart.html"><i class="fa fa-shopping-cart" style="font-size: 24px"></i></a>
-            </li>
-            <ul class="nav-links">
-                <li><a href="#login">Logg Inn</a></li>
-                <li><a href="#register" class="cta">Opprett Bruker</a></li>
-            </ul>
+          <li><a href="#login">Logg Inn</a></li>
+          <li><a href="#register" class="cta">Opprett Bruker</a></li>
         </ul>
+      </ul>
     </nav>
 
     <!-- Medlemskap Section -->
     <section class="pricing-section">
-        <h1>Velg ditt medlemskap</h1>
-        <div class="membership-container">
-            <!-- Basis Medlemskap -->
-            <div class="membership-card">
-                <h2>Basis Medlemskap</h2>
-                <ul>
-                    <li>Pris: <strong>299 kr/måned</strong></li>
-                    <li>Tilgang til treningsstudio</li>
-                    <li>Ingen bindingstid</li>
-                    <li>Gratis parkering</li>
-                </ul>
-                <button class="buy-btn" onclick="addToCart('basis', 'Basis Medlemskap', 299)">
-                    Kjøp Nå
-                </button>
-            </div>
-
-            <!-- Premium Medlemskap -->
-            <div class="membership-card">
-                <h2>Premium Medlemskap</h2>
-                <ul>
-                    <li>Pris: <strong>499 kr/måned</strong></li>
-                    <li>Tilgang til treningsstudio</li>
-                    <li>Gruppetimer inkludert</li>
-                    <li>Gratis PT-time hver måned</li>
-                    <li>Ingen bindingstid</li>
-                </ul>
-                <button class="buy-btn" onclick="addToCart('premium', 'Premium Medlemskap', 499)">
-                    Kjøp Nå
-                </button>
-            </div>
-
-            <!-- Familie Medlemskap -->
-            <div class="membership-card">
-                <h2>Familie Medlemskap</h2>
-                <ul>
-                    <li>Pris: <strong>899 kr/måned</strong></li>
-                    <li>Tilgang til treningsstudio for opptil 4 personer</li>
-                    <li>Gruppetimer inkludert</li>
-                    <li>Gratis PT-time hver måned</li>
-                    <li>Ingen bindingstid</li>
-                </ul>
-                <button class="buy-btn" onclick="addToCart('familie', 'Familie Medlemskap', 899)">
-                    Kjøp Nå
-                </button>
-            </div>
+      <h1>Velg ditt medlemskap</h1>
+      <div class="membership-container">
+        <!-- Basis Medlemskap -->
+        <div class="membership-card">
+          <h2>Basis Medlemskap</h2>
+          <ul>
+            <li>Pris: <strong>299 kr/måned</strong></li>
+            <li>Tilgang til treningsstudio</li>
+            <li>Ingen bindingstid</li>
+            <li>Gratis parkering</li>
+          </ul>
+          <button
+            class="buy-btn"
+            onclick="addToCart('basis', 'Basis Medlemskap', 299)"
+          >
+            Kjøp Nå
+          </button>
         </div>
+
+        <!-- Premium Medlemskap -->
+        <div class="membership-card">
+          <h2>Premium Medlemskap</h2>
+          <ul>
+            <li>Pris: <strong>499 kr/måned</strong></li>
+            <li>Tilgang til treningsstudio</li>
+            <li>Gruppetimer inkludert</li>
+            <li>Gratis PT-time hver måned</li>
+            <li>Ingen bindingstid</li>
+          </ul>
+          <button
+            class="buy-btn"
+            onclick="addToCart('premium', 'Premium Medlemskap', 499)"
+          >
+            Kjøp Nå
+          </button>
+        </div>
+
+        <!-- Familie Medlemskap -->
+        <div class="membership-card">
+          <h2>Familie Medlemskap</h2>
+          <ul>
+            <li>Pris: <strong>899 kr/måned</strong></li>
+            <li>Tilgang til treningsstudio for opptil 4 personer</li>
+            <li>Gruppetimer inkludert</li>
+            <li>Gratis PT-time hver måned</li>
+            <li>Ingen bindingstid</li>
+          </ul>
+          <button
+            class="buy-btn"
+            onclick="addToCart('familie', 'Familie Medlemskap', 899)"
+          >
+            Kjøp Nå
+          </button>
+        </div>
+      </div>
     </section>
 
     <section class="pricing-section">
-        <h1>Gruppetimer</h1>
-        <div class="membership-container">
-            <!-- 9-ukers Trening -->
-            <div class="membership-card">
-                <h2>9-ukers Trening</h2>
-                <ul>
-                    <li>1 økt pr. uke: <strong>1450kr</strong></li>
-                    <button class="buy-btn" onclick="addToCart('9ukers_1okt', '1 økt pr. uke', 1450)">
-                        Kjøp Nå
-                    </button>
-                    <li>2 økter pr. uke: <strong>2550kr</strong></li>
-                    <button class="buy-btn" onclick="addToCart('9ukers_2okt', '2 økter pr. uke', 2550)">
-                        Kjøp Nå
-                    </button>
-                </ul>
-            </div>
-
-            <!-- Frem til Jul -->
-            <div class="membership-card">
-                <h2>Frem til Jul</h2>
-                <ul>
-                    <li>1 økt pr. uke: <strong>2700kr</strong> (540kr pr. Mnd.)</li>
-                    <button class="buy-btn" onclick="addToCart('jul_1okt', '1 økt pr. uke', 2700)">
-                        Kjøp Nå
-                    </button>
-                    <li>2 økter pr. uke: <strong>4200kr</strong> (840kr pr. Mnd.)</li>
-                    <button class="buy-btn" onclick="addToCart('jul_2okt', '2 økter pr. uke', 4200)">
-                        Kjøp Nå
-                    </button>
-                    <li>Ned i vekt –lukket gruppe: <strong>3500kr</strong></li>
-                    <button class="buy-btn" onclick="addToCart('jul_vekt', 'Ned i vekt', 3500)">
-                        Kjøp Nå
-                    </button>
-                </ul>
-            </div>
+      <h1>Gruppetimer</h1>
+      <div class="membership-container">
+        <!-- 9-ukers Trening -->
+        <div class="membership-card">
+          <h2>9-ukers Trening</h2>
+          <ul>
+            <li>1 økt pr. uke: <strong>1450kr</strong></li>
+            <button
+              class="buy-btn"
+              onclick="addToCart('9ukers_1okt', '1 økt pr. uke', 1450)"
+            >
+              Kjøp Nå
+            </button>
+            <li>2 økter pr. uke: <strong>2550kr</strong></li>
+            <button
+              class="buy-btn"
+              onclick="addToCart('9ukers_2okt', '2 økter pr. uke', 2550)"
+            >
+              Kjøp Nå
+            </button>
+          </ul>
         </div>
+
+        <!-- Frem til Jul -->
+        <div class="membership-card">
+          <h2>Frem til Jul</h2>
+          <ul>
+            <li>1 økt pr. uke: <strong>2700kr</strong> (540kr pr. Mnd.)</li>
+            <button
+              class="buy-btn"
+              onclick="addToCart('jul_1okt', '1 økt pr. uke', 2700)"
+            >
+              Kjøp Nå
+            </button>
+            <li>2 økter pr. uke: <strong>4200kr</strong> (840kr pr. Mnd.)</li>
+            <button
+              class="buy-btn"
+              onclick="addToCart('jul_2okt', '2 økter pr. uke', 4200)"
+            >
+              Kjøp Nå
+            </button>
+            <li>Ned i vekt –lukket gruppe: <strong>3500kr</strong></li>
+            <button
+              class="buy-btn"
+              onclick="addToCart('jul_vekt', 'Ned i vekt', 3500)"
+            >
+              Kjøp Nå
+            </button>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- JavaScript for managing cart -->
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        // Add item to cart with quantity
-        function addToCart(itemID, itemName, price) {
-            const existingItemIndex = cart.findIndex(item => item.id === itemID);
+      function addToCart(itemID, itemName, price) {
+        const item = {
+          id: itemID,
+          name: itemName,
+          price: parseFloat(price), // Ensure price is a number
+          quantity: 1, // Default to 1, or get this value from user input
+        };
 
-            if (existingItemIndex !== -1) {
-                // If the item already exists in the cart, increase the quantity
-                cart[existingItemIndex].quantity += 1;
-            } else {
-                // Otherwise, add a new item with quantity set to 1
-                const item = {
-                    id: itemID,
-                    name: itemName,
-                    price: parseFloat(price),
-                    quantity: 1
-                };
-                cart.push(item);
-            }
+        // Send item data to the server (Node.js + MongoDB)
+        fetch("http://localhost:5000/cart", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(item),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Item added to cart:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
 
-            // Save the updated cart to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(itemName + " ble lagt til i handlekurven.");
-        }
+      // You can now remove localStorage-based cart functions, since data is now stored in MongoDB.
     </script>
+
+    <script src="Shop.js"></script>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Vitalis Fitness. Alle rettigheter reservert.</p>
+      <p>&copy; 2024 Vitalis Fitness. Alle rettigheter reservert.</p>
     </footer>
-</body>
-
+  </body>
 </html>
