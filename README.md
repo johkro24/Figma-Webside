@@ -14,6 +14,7 @@ The goal of this project is to convert a Figma design into a responsive website.
 - Easy to read code
 - Built with HTML, CSS, and JavaScript
 - Customizable components and sections
+- Added a basic but functional shop system and have attempted to style it but it is not completed
 
 ## Installation
 To run this project locally, follow these steps:

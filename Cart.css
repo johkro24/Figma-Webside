@@ -1,0 +1,386 @@
+/* General styling */
+html,
+body {
+  height: 100%; /* Ensure the body takes the full height */
+  margin: 0; /* Remove default margin */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333; /* Set body background to dark gray */
+  color: white; /* Set default text color to white */
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+}
+
+.main-content {
+  flex: 1; /* This makes the main content take up the remaining space */
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1da1f2; /* Vitalis Fitness Blue */
+  padding: 10px 20px;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* CTA button styling */
+.cta {
+  background-color: white !important; /* Ensure background is white */
+  color: #1da1f2 !important; /* Ensure text color is blue */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Change background and text color on hover */
+.cta:hover {
+  background-color: #1da1f2 !important; /* Background changes to blue on hover */
+  color: white !important; /* Text changes to white on hover */
+}
+
+/* Overlay Styles (both login and register) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure overlays are on top */
+}
+
+/* Login Box */
+.login-box {
+  background-color: #fff;
+  padding: 40px;
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Login Box Heading */
+.login-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input Fields */
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.login-box input::placeholder {
+  color: #ccc;
+}
+
+/* Button */
+.login-box button {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #555;
+}
+
+/* Pricing Section */
+.pricing-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.pricing-section h1 {
+  color: #fff; /* White text for heading */
+  margin-bottom: 40px;
+}
+
+.membership-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.membership-card {
+  background-color: #444; /* Set card background to a lighter gray */
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.membership-card h2 {
+  color: #1da1f2; /* Blue heading */
+  font-size: 22px;
+}
+
+.membership-card p {
+  font-size: 18px;
+  color: #fff; /* White text for paragraph */
+}
+
+.membership-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.membership-card li {
+  margin: 10px 0;
+  color: #fff; /* White text for list items */
+}
+
+/* Container for pricing section */
+.pricing-grid {
+  display: flex;
+  justify-content: center; /* Center all the pricing cards horizontally */
+  align-items: flex-start; /* Align items to the top */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 20px; /* Space between each pricing card */
+  padding: 20px; /* Padding inside the larger box */
+  max-width: 1200px; /* Ensure the grid has a maximum width */
+  margin: 0 auto; /* Center the grid within the parent container */
+}
+
+/* Each pricing card */
+.pricing-card {
+  background-color: #444; /* Set card background to a lighter gray */
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px; /* Set a fixed width for the cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure content stays within the card */
+}
+
+/* Additional styling for the items inside the pricing card */
+.pricing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* Buy Now Button */
+.buy-btn {
+  white-space: nowrap;
+  display: inline-block;
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: #0a7abc;
+}
+
+/* Center the section headings */
+.section h2 {
+  text-align: center; /* Center the text */
+  margin-bottom: 20px; /* Optional: Adds space below the heading */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1da1f2; /* Footer background color */
+  color: rgb(255, 255, 255); /* Footer text color */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-section {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .image-section img {
+    max-height: 300px;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+/* Shopping Cart Styles */
+.cart-section {
+  padding: 20px;
+  background-color: #444; /* Darker background for cart section */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-container {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #666; /* Darker border color */
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-details {
+  max-width: 300px; /* Limits the width of the product details */
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.quantity-btn {
+  border: none;
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.price,
+.total-price {
+  margin-right: 15px;
+}
+
+.remove-btn {
+  border: none;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.checkout-btn {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#checkout-btn {
+  background-color: #1da1f2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#checkout-btn:hover {
+  background-color: #0a7abc; /* Darker blue on hover */
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between; /* Space items evenly */
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #666; /* Darker border color */
+}
+
+.product-info, .price, .quantity {
+  flex: 1; /* Each section takes equal width */
+  text-align: center; /* Center align text */
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the quantity controls */
+}
+
+.quantity-btn {
+  border: none;
+  background-color: #1da1f2;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px; /* Space around buttons */
+}
+
+.quantity-btn:hover {
+  background-color: #0a7abc; /* Darker on hover */
+}
+
+.remove-btn {
+  border: none;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}

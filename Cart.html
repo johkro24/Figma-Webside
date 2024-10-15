@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Cart.css" />
+    <title>Handlekurv</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="Index.html">
+          <img src="Images/Logo.svg" alt="Vitalis Fitness Logo" />
+        </a>
+        <span>Vitalis Fitness</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="Shop.html">Bli medlem</a></li>
+        <li><a href="About.html">Om oss</a></li>
+        <ul class="nav-links">
+          <li><a href="#login">Logg Inn</a></li>
+          <li><a href="#register" class="cta">Opprett Bruker</a></li>
+        </ul>
+      </ul>
+    </nav>
+
+    <!-- Shopping Cart Section -->
+    <section class="cart-section">
+      <h1>Din Handlekurv</h1>
+
+      <div class="cart-item-container" id="cart-items">
+        <!-- Cart items will be dynamically generated here -->
+      </div>
+
+      <div class="cart-summary">
+        <h3>Total: <span id="cart-total">0 kr</span></h3>
+        <button id="checkout-btn" class="checkout-btn">Gå til kassen</button>
+      </div>
+    </section>
+
+    <script>
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Function to display cart items
+      function displayCartItems() {
+        const cartItemsContainer = document.getElementById("cart-items");
+        const cartTotalContainer = document.getElementById("cart-total");
+        cartItemsContainer.innerHTML = "";
+
+        // Initialize total to 0 (for summing up prices)
+        let total = 0;
+
+        cart.forEach((item, index) => {
+          const itemRow = document.createElement("div");
+          itemRow.classList.add("cart-item");
+          itemRow.innerHTML = `
+            <div class="product-info">
+              <h2>${item.name}</h2>
+            </div>
+            <div class="price">
+              <span>${item.price} kr</span>
+            </div>
+            <div class="quantity">
+              <button class="quantity-btn" onclick="updateQuantity(${index}, 'decrease')">-</button>
+              <span>${item.quantity}</span>
+              <button class="quantity-btn" onclick="updateQuantity(${index}, 'increase')">+</button>
+            </div>
+            <button class="remove-btn" onclick="removeFromCart(${index})">&#x2716;</button>
+          `;
+          cartItemsContainer.appendChild(itemRow);
+
+          // Add price multiplied by quantity to the total
+          total += parseFloat(item.price) * item.quantity;
+        });
+
+        // Update total display
+        cartTotalContainer.textContent = `${total.toFixed(2)} kr`;
+      }
+
+      // Function to update item quantity
+      function updateQuantity(index, action) {
+        if (action === "increase") {
+          cart[index].quantity += 1; // Increase quantity
+        } else if (action === "decrease" && cart[index].quantity > 1) {
+          cart[index].quantity -= 1; // Decrease quantity
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCartItems(); // Refresh the cart display
+      }
+
+      // Function to remove an item from the cart
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCartItems();
+      }
+
+      // Display the cart items on page load
+      displayCartItems();
+
+      // Checkout button logic
+      document.getElementById("checkout-btn").addEventListener("click", () => {
+        if (cart.length === 0) {
+          alert("Handlekurven er tom.");
+        } else {
+          alert("Til kassen (utvid med betalingsintegrasjon).");
+          // Clear the cart after checkout
+          cart = [];
+          localStorage.setItem("cart", JSON.stringify(cart));
+          displayCartItems();
+        }
+      });
+    </script>
+  </body>
+</html>
