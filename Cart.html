@@ -19,6 +19,11 @@
       <ul class="nav-links">
         <li><a href="Shop.html">Bli medlem</a></li>
         <li><a href="About.html">Om oss</a></li>
+        <li>
+          <a href="Cart.html"
+            ><i class="fa fa-shopping-cart" style="font-size: 24px"></i
+          ></a>
+        </li>
         <ul class="nav-links">
           <li><a href="#login">Logg Inn</a></li>
           <li><a href="#register" class="cta">Opprett Bruker</a></li>
@@ -41,15 +46,25 @@
     </section>
 
     <script>
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+      // Fetch cart data from MongoDB on page load
+      function fetchCartFromMongoDB() {
+        fetch("http://localhost:5000/cart")
+          .then((response) => response.json())
+          .then((cartItems) => {
+            displayCartItems(cartItems); // Use the same displayCartItems function
+          })
+          .catch((error) => {
+            console.error("Error fetching cart items from MongoDB:", error);
+          });
+      }
+
       // Function to display cart items
-      function displayCartItems() {
+      function displayCartItems(cart) {
         const cartItemsContainer = document.getElementById("cart-items");
         const cartTotalContainer = document.getElementById("cart-total");
         cartItemsContainer.innerHTML = "";
         let total = 0;
-    
+
         cart.forEach((item, index) => {
           const itemRow = document.createElement("div");
           itemRow.classList.add("cart-item");
@@ -70,45 +85,61 @@
           cartItemsContainer.appendChild(itemRow);
           total += parseFloat(item.price) * item.quantity;
         });
-    
+
         cartTotalContainer.textContent = `${total.toFixed(2)} kr`;
       }
-    
-      // Function to update item quantity
+
+      // Update MongoDB when quantity changes
       function updateQuantity(index, action) {
+        const cartItem = cart[index];
         if (action === "increase") {
-          cart[index].quantity += 1;
-        } else if (action === "decrease" && cart[index].quantity > 1) {
-          cart[index].quantity -= 1;
+          cartItem.quantity += 1;
+        } else if (action === "decrease" && cartItem.quantity > 1) {
+          cartItem.quantity -= 1;
         }
-        localStorage.setItem("cart", JSON.stringify(cart));
-        displayCartItems(); // Refresh the cart display
+        fetch(`http://localhost:5000/cart/${cartItem.id}`, {
+          method: "PUT", // Assuming MongoDB update with PUT request
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(cartItem),
+        })
+          .then(() => fetchCartFromMongoDB()) // Refresh after update
+          .catch((error) => {
+            console.error("Error updating item quantity:", error);
+          });
       }
-    
-      // Function to remove an item from the cart
+
+      // Remove item from cart in MongoDB
       function removeFromCart(index) {
-        cart.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        displayCartItems();
+        const cartItem = cart[index];
+        fetch(`http://localhost:5000/cart/${cartItem.id}`, {
+          method: "DELETE", // Assuming MongoDB remove with DELETE request
+        })
+          .then(() => fetchCartFromMongoDB()) // Refresh after deletion
+          .catch((error) => {
+            console.error("Error removing item:", error);
+          });
       }
-    
-      // Display the cart items on page load
-      displayCartItems();
-    
-      // Checkout button logic
+
+      // Checkout logic (clears cart in MongoDB)
       document.getElementById("checkout-btn").addEventListener("click", () => {
         if (cart.length === 0) {
           alert("Handlekurven er tom.");
         } else {
-          alert("Til kassen (utvid med betalingsintegrasjon).");
-          // Clear the cart after checkout
-          cart = [];
-          localStorage.setItem("cart", JSON.stringify(cart));
-          displayCartItems();
+          fetch("http://localhost:5000/cart/checkout", { method: "POST" }) // Assuming checkout endpoint
+            .then(() => {
+              alert("Til kassen (utvid med betalingsintegrasjon).");
+              fetchCartFromMongoDB(); // Clear cart after checkout
+            })
+            .catch((error) => {
+              console.error("Error during checkout:", error);
+            });
         }
       });
-    </script>
-    
 
+      // Fetch and display cart items on page load
+      fetchCartFromMongoDB();
+    </script>
   </body>
 </html>
