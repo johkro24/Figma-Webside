@@ -33,3 +33,43 @@ registerOverlay.addEventListener('click', function (e) {
     registerOverlay.style.display = 'none';
   }
 });
+
+// Submit login form
+document.getElementById('loginForm').onsubmit = function (event) {
+  event.preventDefault();
+  const data = new FormData(this);
+
+  fetch('/login', {
+    method: 'POST',
+    body: data
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.success) {
+      alert('Login successful!');
+      loginOverlay.style.display = 'none'; // Close the overlay
+    } else {
+      alert('Login failed: ' + result.message);
+    }
+  });
+};
+
+// Submit register form
+document.getElementById('registerForm').onsubmit = function (event) {
+  event.preventDefault();
+  const data = new FormData(this);
+
+  fetch('/register', {
+    method: 'POST',
+    body: data
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.success) {
+      alert('Registration successful!');
+      registerOverlay.style.display = 'none'; // Close the overlay
+    } else {
+      alert('Registration failed: ' + result.message);
+    }
+  });
+};
