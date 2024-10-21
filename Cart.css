@@ -353,7 +353,9 @@ footer {
   border-bottom: 1px solid #666; /* Darker border color */
 }
 
-.product-info, .price, .quantity {
+.product-info,
+.price,
+.quantity {
   flex: 1; /* Each section takes equal width */
   text-align: center; /* Center align text */
 }
